@@ -1,0 +1,29 @@
+import java.util.Scanner;
+import java.util.function.BiFunction;
+
+public class DigitSumLambda {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter number: ");
+        int num = sc.nextInt();
+
+        System.out.print("Enter option (even/odd): ");
+        String option = sc.next();
+
+        BiFunction<Integer, String, Integer> sumDigits = (n, op) -> {
+            int sum = 0;
+            while (n > 0) {
+                int digit = n % 10;
+                if (op.equalsIgnoreCase("even") && digit % 2 == 0)
+                    sum += digit;
+                else if (op.equalsIgnoreCase("odd") && digit % 2 != 0)
+                    sum += digit;
+                n /= 10;
+            }
+            return sum;
+        };
+
+        System.out.println("Sum = " + sumDigits.apply(num, option));
+    }
+}
