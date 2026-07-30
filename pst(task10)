@@ -1,0 +1,23 @@
+import java.util.Scanner;
+import java.util.function.BiFunction;
+
+public class LastDigitSum {
+
+    public static Integer sumLastDigits(Integer a, Integer b) {
+        return (a % 10) + (b % 10);
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter first number: ");
+        int a = sc.nextInt();
+
+        System.out.print("Enter second number: ");
+        int b = sc.nextInt();
+
+        BiFunction<Integer, Integer, Integer> obj = LastDigitSum::sumLastDigits;
+
+        System.out.println("Sum of last digits = " + obj.apply(a, b));
+    }
+}
