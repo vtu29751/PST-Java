@@ -1,0 +1,18 @@
+class Solution {
+    public String[] sortPeople(String[] names, int[] heights) {
+        int nameSize = names.length;
+        int heightsSize = heights.length;
+        String newArray[] = new String[nameSize];
+        HashMap<Integer, String> map = new HashMap<>();
+        for(int i = 0; i < nameSize; i++){
+            map.put(heights[i], names[i]);
+        }
+        List<Integer> ans = new ArrayList<>(map.keySet());
+        ans.sort((height1, height2) -> height2 - height1);
+
+        for(int i = 0; i < ans.size(); i++){
+            newArray[i] = map.get(ans.get(i));
+        }   
+        return newArray;
+    }
+}
